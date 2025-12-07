@@ -1,7 +1,15 @@
 Host Blacklisting
 
+MUST indlude: File I/O, imported modules, functions, error detection, and command line arguments. 
+             File I/O: (etc/hosts on Linux, c:\Windows\System32\Drivers\etc\hosts on windows) 
+             Imported Modules: OS, Sys, Argparse....
+
 #Create a command line interface where you can enter a host FQDN to be blocked similar to DNS blackholing. 
+Argparse, sys, os
 
 #The script will use the hosts file to direct any requests to the specified host to 0.0.0.0. 
+File I/O
 
 #If the specified entry already exists in the host file, the script must inform the user the host already exists and ask if the entry should be deleted or modified.
+Error handling/ File I/O
+
