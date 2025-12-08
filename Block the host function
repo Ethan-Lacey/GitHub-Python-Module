@@ -1,0 +1,17 @@
+def blockHost(FQDN, hostsPath):
+    hostsPath = getHostPath
+    hostLines = readHostFile(hostsPath)
+    index = findHost(FQDN, lines)
+
+    if index:
+      return False, print(f"An entry for {FQDN} already exists"
+
+    addEntry = [
+      f"{block_IP} {FQDN}\n"
+      f"{block_IP} www.{FQDN}\n"
+    ]
+
+    lines.extend(addEntry)
+    writeHostsFile(hostsPath, lines)
+
+    
