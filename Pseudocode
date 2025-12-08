@@ -13,7 +13,7 @@ import platform
 getHostPath():
     #determine the path to the HOSTS file, irrespective of the OS
     if system == "Windows":
-       return "C:\Windows\System32\drivers\etc\hosts"
+       return "C:\\Windows\\System32\\drivers\\etc\\hosts"
     elif system == "Linux":
        return "/etc/hosts"
     else:
