@@ -5,7 +5,20 @@ MUST indlude: File I/O, imported modules, functions, error detection, and comman
              Imported Modules: OS, Sys, Argparse....
 
 #Create a command line interface where you can enter a host FQDN to be blocked similar to DNS blackholing. 
-Argparse, sys, os
+Argparse, sys, os,
+
+#module will need to work indendent of the operating system
+import platform
+
+getHostPath():
+    #determine the path to the HOSTS file, irrespective of the OS
+    if system == "Windows":
+       return "C:\Windows\System32\drivers\etc\hosts"
+    elif system == "Linux":
+       return "/etc/hosts"
+    else:
+       #for MacOS and other OSes
+       return "/etc/hosts"
 
 #The script will use the hosts file to direct any requests to the specified host to 0.0.0.0. 
 File I/O
