@@ -1,3 +1,10 @@
 Read the Hosts file function
 
-pathToHost = pa
+pathToHost = getHostPath()
+
+#the address used to block the suspect FQDN
+dns_blackhole = "0.0.0.0"
+
+def hosts_file():
+    with open(pathToHost, 'r') as hostFile:
+        return hostFile.readlines()
