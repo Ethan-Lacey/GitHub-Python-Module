@@ -1,0 +1,16 @@
+def commandLine():
+    hostsPath = getHostPath()
+
+parsing = argparse.ArgumentParser(
+        description="Blackholing Utility for blocking suspicious hosts."
+        prefix_chars = "-"
+    )
+
+    subparsing = parsing.add_subparsers(dest="command", required=True)
+    blockParser = subparsing.add_subparsers("-block")
+    blockParser.add_argument("FQDN", type=str, help="Enter the Fully Qualified Domain Name you wish to block.")
+
+    unblockParser = subparsing.add_parser("-unblock")
+    unblockParser.add_argument("FQDN", trype=str, help="Enter the Fully Qualified Domain Name you wish to unblock.")
+
+    args = parser.parse_args()
