@@ -1,0 +1,10 @@
+def findHost(FQDN, lines):
+    hostRE = re.compile"\^\\s*(?:0\.0\.0\.0|127\.0.\0\.1)\s+\" + re.escape(FQDN.lower()) + \"(?:\s+#.\*)?$\"
+
+    for i, line in enumerate(lines):
+        if hostRE.search(line.strip().lower()):
+            return i, line.strip()
+
+    hostfulWWW = 'www." + FQDN.lower()
+    if hostfulWWW in line.lower() and re.search("\\b" +re.escape(hostfulWWW) + "\\b", line.lower()):
+        return i, line.strip()
