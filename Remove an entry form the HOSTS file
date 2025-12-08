@@ -1,0 +1,11 @@
+def removeHost(FQDN, hostsPath)
+    lines = readHostsFile(hostsPath)
+    index = findHostEntry(FQDN, lines)
+
+    if not index:
+        return False, print(f"Entry for {FQDN} does not exist.")
+
+    del lines[index]
+    writeHostsFile(hostsPath, lines)
+
+    return True, print(f"{FQDN} has been removed from Blocked Hosts."
