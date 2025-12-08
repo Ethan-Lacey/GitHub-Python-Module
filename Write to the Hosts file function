@@ -1,0 +1,4 @@
+def writeHostsFile(hostsPath, fileContent):
+    with open(hostsPath, 'w') as hostsFile:
+        hostsFile.writelines(fileContent)
+  
