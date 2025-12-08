@@ -3,14 +3,27 @@ def commandLine():
 
 parsing = argparse.ArgumentParser(
         description="Blackholing Utility for blocking suspicious hosts."
-        prefix_chars = "-"
     )
 
-    subparsing = parsing.add_subparsers(dest="command", required=True)
-    blockParser = subparsing.add_subparsers("-block")
+    subparser = parser.add_subparsers(dest="command", required=True, help="What do you want to do?)
+    blockParser = subparser.add_subparsers("block" help="Block a Fully Qualified Domai Name)
     blockParser.add_argument("FQDN", type=str, help="Enter the Fully Qualified Domain Name you wish to block.")
 
-    unblockParser = subparsing.add_parser("-unblock")
+    unblockParser = subparser.add_parser("unblock", help="Unblock a Fully Qualified Domain Name)
     unblockParser.add_argument("FQDN", trype=str, help="Enter the Fully Qualified Domain Name you wish to unblock.")
 
     args = parser.parse_args()
+
+#Add error handling for Command Line function
+try:
+        if args.command == "block":
+            blockHost(args.FQDN)
+            print("The host has been successfully blocked")
+        
+        elif args.command == "unblock":
+            removeHost(args.FQDN)
+            print("The Host has been succesfully unblocked")
+    
+    except (FileNotFoundError) as error:
+        print(f"Error: {error}" file=sys.stderr)
+        SystemExit(1)
